@@ -7,19 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
 
-        TextView signUpText = findViewById(R.id.signUpText);
-        signUpText.setOnClickListener(this::onSignUpClickHandler);
+        TextView logInText = findViewById(R.id.logInText);
+        logInText.setOnClickListener(this::onLogInClickHandler);
     }
 
-    private void onSignUpClickHandler(View v){
-        Intent intent = new Intent(this, SignUpActivity.class);
+    private void onLogInClickHandler(View v){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
