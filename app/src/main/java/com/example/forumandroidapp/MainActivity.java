@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         signUpText.setOnClickListener(this::onSignUpClickHandler);
     }
 
-    private void onSignUpClickHandler(View v){
+    private void onSignUpClickHandler(View v) {
         Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
     }
