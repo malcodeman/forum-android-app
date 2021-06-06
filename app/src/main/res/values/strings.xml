@@ -10,4 +10,7 @@
     <string name="do_not_have_an_account">Don\'t have an account?</string>
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
+    <string name="an_interesting_title">An interesting title</string>
+    <string name="your_text_post">Your text post (optional)</string>
+    <string name="post">Post</string>
 </resources>
