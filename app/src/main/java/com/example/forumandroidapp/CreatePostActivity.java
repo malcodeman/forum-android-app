@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class CreatePostActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +20,8 @@ public class CreatePostActivity extends AppCompatActivity {
 
         Button postBtn = findViewById(R.id.postBtn);
         postBtn.setOnClickListener(this::onPostHandler);
+
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.text_post);
     }
 
     private void onPostHandler(View v) {

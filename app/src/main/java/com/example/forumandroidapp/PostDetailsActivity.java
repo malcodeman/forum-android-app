@@ -5,17 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import java.util.Objects;
+
 public class PostDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_details);
-
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
         handleIntent();
     }
 
-    private void handleIntent(){
+    private void handleIntent() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             long uid = extras.getLong(FeedActivity.POST_ID);

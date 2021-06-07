@@ -13,4 +13,5 @@
     <string name="an_interesting_title">An interesting title</string>
     <string name="your_text_post">Your text post (optional)</string>
     <string name="post">Post</string>
+    <string name="text_post">Text post</string>
 </resources>
