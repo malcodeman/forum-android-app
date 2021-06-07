@@ -23,4 +23,12 @@ public class Post {
     public String getTitle() {
         return this.title;
     }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public int getId() {
+        return this.id;
+    }
 }

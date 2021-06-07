@@ -4,9 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,23 +20,19 @@ public class FeedActivity extends AppCompatActivity {
 
         FloatingActionButton floatingActionButton = findViewById(R.id.floatingActionButton);
         floatingActionButton.setOnClickListener(this::onActionButtonClickHandler);
-        listPosts();
+        initializeListAdapter();
+
+    }
+
+    private void initializeListAdapter() {
+        List<Post> items = AppDatabase.getDbInstance(getApplicationContext()).postDao().getAll();
+        PostListAdapter adapter = new PostListAdapter(this, items);
+        ListView listView = findViewById(R.id.postsListView);
+        listView.setAdapter(adapter);
     }
 
     private void onActionButtonClickHandler(View v) {
         Intent intent = new Intent(getApplicationContext(), CreatePostActivity.class);
         startActivity(intent);
-    }
-
-    private void listPosts() {
-        AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<Post> posts = db.postDao().getAll();
-        ListView listView = (ListView) findViewById(R.id.postsListView);
-        String[] titles = new String[posts.size()];
-        for (int i = 0; i < posts.size(); i++) {
-            titles[i] = posts.get(i).getTitle();
-        }
-        listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_list_item_1, titles));
     }
 }
