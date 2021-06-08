@@ -24,7 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void onLogInClickHandler(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LogInActivity.class);
         startActivity(intent);
     }
 
@@ -56,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         } else {
             User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString());
             db.userDao().insertUsers(user);
-            Intent intent = new Intent(this, FeedActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
     }

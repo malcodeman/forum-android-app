@@ -21,7 +21,7 @@ public class PostDetailsActivity extends AppCompatActivity {
     private void handleIntent() {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            long uid = extras.getLong(FeedActivity.POST_ID);
+            long uid = extras.getLong(FeedFragment.POST_ID);
             Post post = AppDatabase.getDbInstance(getApplicationContext()).postDao().getById((int) uid);
 
             TextView title = findViewById(R.id.postDetailsTitle);
