@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ForumAndroidApp">
-        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".PostDetailsActivity" android:parentActivityName=".MainActivity" />
+        <activity android:name=".EditProfileActivity" android:parentActivityName=".MainActivity" />
         <activity android:name=".LogInActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
