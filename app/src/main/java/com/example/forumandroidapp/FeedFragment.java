@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class FeedFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        ListView listView = getView().findViewById(R.id.postsListView);
+        ListView listView = requireView().findViewById(R.id.postsListView);
         listView.setOnItemClickListener(this::listItemOnClickHandler);
         initializeListAdapter();
     }
@@ -41,5 +42,9 @@ public class FeedFragment extends Fragment {
         PostListAdapter adapter = new PostListAdapter(getActivity().getApplicationContext(), items);
         ListView listView = getView().findViewById(R.id.postsListView);
         listView.setAdapter(adapter);
+        if(items.size() == 0){
+            TextView emptyState = getView().findViewById(R.id.emptyState);
+            emptyState.setVisibility(View.VISIBLE);
+        }
     }
 }

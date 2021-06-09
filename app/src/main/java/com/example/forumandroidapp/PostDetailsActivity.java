@@ -31,5 +31,4 @@ public class PostDetailsActivity extends AppCompatActivity {
             text.setText(post.getText());
         }
     }
-
 }

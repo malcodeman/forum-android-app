@@ -16,4 +16,11 @@
     <string name="text_post">Text post</string>
     <string name="edit">Edit</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="display_name_optional">Display name (optional)</string>
+    <string name="shown_on_your_profile_page">Shown on your profile page</string>
+    <string name="this_will_be_displayed_on_your_profile_page">This will be displayed to views of your profile page on and does not change your username.</string>
+    <string name="about">About</string>
+    <string name="a_little_description_of_yourself">A little description of yourself</string>
+    <string name="save">Save</string>
+    <string name="no_posts">No posts...</string>
 </resources>
