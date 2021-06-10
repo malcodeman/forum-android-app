@@ -46,6 +46,10 @@ public class PostListAdapter extends BaseAdapter {
         itemTitle.setText(item.getTitle());
         itemDescription.setText(item.getText());
 
+        if (itemDescription.getText().length() == 0) {
+            itemDescription.setVisibility(View.GONE);
+        }
+
         return convertView;
     }
 }
