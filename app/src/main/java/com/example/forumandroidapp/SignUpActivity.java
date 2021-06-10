@@ -54,7 +54,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             password.requestFocus();
         } else {
-            User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString());
+            User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString(), "", "");
             db.userDao().insertUsers(user);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);

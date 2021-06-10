@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class LogInActivity extends AppCompatActivity {
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,15 @@ public class LogInActivity extends AppCompatActivity {
         Button logInButton = findViewById(R.id.logInButton);
         signUpText.setOnClickListener(this::onSignUpClickHandler);
         logInButton.setOnClickListener(this::onLogInButtonClickHandler);
+        preferences = new Preferences(this);
+        if(preferences.getIsLoggedIn()){
+            goToMain();
+        }
+    }
+
+    private void goToMain(){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
     }
 
     private void onSignUpClickHandler(View v) {
@@ -42,6 +52,8 @@ public class LogInActivity extends AppCompatActivity {
         } else {
             User user = db.userDao().getUserByUsernameAndPassword(username.getText().toString(), password.getText().toString());
             if (user != null) {
+                preferences.saveUserInfo(user);
+                preferences.saveIsLoggedIn(true);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             } else {

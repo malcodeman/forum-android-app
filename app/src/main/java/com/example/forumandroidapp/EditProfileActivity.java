@@ -12,6 +12,7 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class EditProfileActivity extends AppCompatActivity {
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +23,26 @@ public class EditProfileActivity extends AppCompatActivity {
 
         Button saveButton = findViewById(R.id.editProfileSaveButton);
         saveButton.setOnClickListener(this::onSaveClickHandler);
+        preferences = new Preferences(this);
+        initializeUserData();
+    }
+
+    private void initializeUserData(){
+        User user = preferences.getSavedUserInfo();
+        EditText displayNameInput = findViewById(R.id.displayNameInput);
+        EditText descriptionInput = findViewById(R.id.descriptionInput);
+        displayNameInput.setText(user.displayName);
+        descriptionInput.setText(user.about);
     }
 
     private void onSaveClickHandler(View v) {
         EditText displayNameInput = findViewById(R.id.displayNameInput);
         EditText descriptionInput = findViewById(R.id.descriptionInput);
         AppDatabase db = AppDatabase.getDbInstance(getApplicationContext());
-        User user = db.userDao().getById(1);
+        User user = preferences.getSavedUserInfo();
         user.displayName = displayNameInput.getText().toString();
         user.about = descriptionInput.getText().toString();
+        preferences.saveUserInfo(user);
         db.userDao().update(user);
         Toast.makeText(getApplicationContext(), "Saved successfully!", Toast.LENGTH_LONG).show();
         goToMain();

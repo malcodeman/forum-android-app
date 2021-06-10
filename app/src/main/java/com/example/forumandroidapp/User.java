@@ -24,11 +24,11 @@ public class User {
     @ColumnInfo(name = "about")
     public String about;
 
-    public User(String email, String username, String password) {
+    public User(String email, String username, String password, String displayName, String about) {
         this.email = email;
         this.username = username;
         this.password = password;
-        this.displayName = "";
-        this.about = "";
+        this.displayName = displayName;
+        this.about = about;
     }
 }

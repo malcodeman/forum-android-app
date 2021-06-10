@@ -11,9 +11,9 @@
         android:theme="@style/Theme.ForumAndroidApp">
         <activity android:name=".PostDetailsActivity" android:parentActivityName=".MainActivity" />
         <activity android:name=".EditProfileActivity" android:parentActivityName=".MainActivity" />
-        <activity android:name=".LogInActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LogInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
