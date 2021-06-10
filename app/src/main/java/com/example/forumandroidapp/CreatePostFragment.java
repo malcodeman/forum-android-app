@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -19,13 +20,12 @@ public class CreatePostFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         Button postBtn = getView().findViewById(R.id.postBtn);
         postBtn.setOnClickListener(this::onPostHandler);
-
-        //Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.text_post);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.text_post);
         return inflater.inflate(R.layout.fragment_create_post, container, false);
     }
 
