@@ -17,7 +17,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        getSupportActionBar().setTitle(R.string.log_in);
         TextView signUpText = findViewById(R.id.signUpText);
         Button logInButton = findViewById(R.id.logInButton);
         signUpText.setOnClickListener(this::onSignUpClickHandler);
