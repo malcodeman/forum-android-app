@@ -56,15 +56,27 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             password.requestFocus();
         } else {
-            User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString(), "", "", "");
-            Runnable r = () -> {
-            };
-            long userId = db.userDao().insertUsers(user);
-            preferences.saveUserId((int) userId);
-            preferences.saveIsLoggedIn(true);
-            ImageService.setAvatarImage(getApplicationContext(), r);
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            User emailExists = db.userDao().getByEmail(email.getText().toString());
+            User usernameExists = db.userDao().getByUsername(username.getText().toString());
+            if (emailExists != null) {
+                Toast.makeText(getApplicationContext(), "Email already taken!",
+                        Toast.LENGTH_LONG).show();
+                email.requestFocus();
+            } else if (usernameExists != null) {
+                Toast.makeText(getApplicationContext(), "Username already taken!",
+                        Toast.LENGTH_LONG).show();
+                username.requestFocus();
+            } else {
+                User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString(), "", "", "");
+                Runnable r = () -> {
+                };
+                long userId = db.userDao().insertUsers(user);
+                preferences.saveUserId((int) userId);
+                preferences.saveIsLoggedIn(true);
+                ImageService.setAvatarImage(getApplicationContext(), r);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
         }
     }
 }
