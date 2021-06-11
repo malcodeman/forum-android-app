@@ -20,7 +20,7 @@ public interface UserDao {
     User getById(int id);
 
     @Insert
-    void insertUsers(User... users);
+    long insertUsers(User user);
 
     @Delete
     void deleteUser(User user);

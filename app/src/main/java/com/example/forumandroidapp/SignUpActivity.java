@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpActivity extends AppCompatActivity {
+    Preferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class SignUpActivity extends AppCompatActivity {
         Button signUpButton = findViewById(R.id.signUpButton);
         logInText.setOnClickListener(this::onLogInClickHandler);
         signUpButton.setOnClickListener(this::onSignUpClickHandler);
+        preferences = new Preferences(this);
     }
 
     private void onLogInClickHandler(View v) {
@@ -54,8 +56,13 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
             password.requestFocus();
         } else {
-            User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString(), "", "");
-            db.userDao().insertUsers(user);
+            User user = new User(email.getText().toString(), username.getText().toString(), password.getText().toString(), "", "", "");
+            Runnable r = () -> {
+            };
+            long userId = db.userDao().insertUsers(user);
+            preferences.saveUserId((int) userId);
+            preferences.saveIsLoggedIn(true);
+            ImageService.setAvatarImage(getApplicationContext(), r);
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

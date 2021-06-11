@@ -24,4 +24,6 @@
     <string name="save">Save</string>
     <string name="no_posts">No posts...</string>
     <string name="home">Home</string>
+    <string name="log_out">Log out</string>
+    <string name="randomize">Randomize</string>
 </resources>

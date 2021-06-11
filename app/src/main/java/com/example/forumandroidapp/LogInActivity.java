@@ -52,7 +52,7 @@ public class LogInActivity extends AppCompatActivity {
         } else {
             User user = db.userDao().getUserByUsernameAndPassword(username.getText().toString(), password.getText().toString());
             if (user != null) {
-                preferences.saveUserInfo(user);
+                preferences.saveUserId(user.uid);
                 preferences.saveIsLoggedIn(true);
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);

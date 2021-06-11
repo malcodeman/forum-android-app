@@ -18,7 +18,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profileDisplayName" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/profileAvatar"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="16dp"
@@ -52,7 +52,7 @@
         android:layout_marginTop="16dp"
         android:text="Display Name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/profileAvatar" />
 
     <TextView
         android:id="@+id/profileAbout"
@@ -64,5 +64,19 @@
         android:text="About"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileUsername" />
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/log_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editProfileButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
